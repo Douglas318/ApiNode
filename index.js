@@ -4,12 +4,11 @@ const app = express()
 
 app.use(express.json())
 
-app.post("/array", function (req, res) {
+app.post("/array", (req, res) => {
     
     const {SomaArray} = req.body;
 
     res.send(SomaArray.join(" "))
-
 
 })
 
