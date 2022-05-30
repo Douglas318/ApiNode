@@ -1,1 +1,1 @@
-EndPoint que recebe um array de palavras e retorna uma string com as palavras separadas por espaços. 
+Alguns exercicios utilizando node.js
