@@ -1,1 +1,1 @@
-Alguns exercicios utilizando node.js
+Alguns exercicios de api utilizando node.js
