@@ -1,13 +1,10 @@
 const express = require('express')
-
 const app = express()
-
 app.use(express.json())
 
-app.post("/array", (req, res) => {
-    
+app.post("/array", (req, res) => {    
     const {SomaArray} = req.body;
-
+    
     res.send(SomaArray.join(" "))
 
 })
