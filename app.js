@@ -1,49 +1,31 @@
 const express = require('express')
-
 const fs = require('fs')
-
 const app = express();
 
 app.use(express.json());
 
-
-app.post("/ContasAReceber", (req, res) => {
-
+app.post("/contas-a-receber", (req, res) => {
     const response = {
-
-        Descricao: req.body.Descricao,
-
-        Valor: req.body.Valor,
-
-        DataDeCompetencia: req.body.DataDeCompetencia,
-
-        DataDeCaixa: req.body.DataDeCaixa,
-
-        Contato: req.body.Contato
+        descricao: req.body.descricao,
+        valor: req.body.valor,
+        datadecompetencia: req.body.datadecompetencia,
+        datadecaixa: req.body.datadecaixa,
+        contato: req.body.contato
     };
 
-    fs.writeFileSync("teste.txt", JSON.stringify(response))
-
+    fs.writeFileSync("teste.json", JSON.stringify(response))
     return res.send("Conta salva com sucesso!");
 
 });
 
-
-app.get("/ContasAReceber/Relatorios", (req, res) => {
-
-    fs.readFile('teste.txt', (err, arquivo) => {
-
+app.get("/contas-a-receber/relatorios", (req, res) => {
+    fs.readFile('teste.json', (err, arquivo) => {
         res.writeHead(200, { 'Content-Type': 'text/txt' });
-
         res.write(arquivo);
 
         return res.end();
-
     });
-
 })
-
-
 
 app.listen(8083, () => {
     console.log("Servidor rodando!")
